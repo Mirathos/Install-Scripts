@@ -13,26 +13,26 @@ printf "%s\n" "$fedora"	# This does the same thing, but for Fedora 30 / 31; Also
 
 if [ "$codename" == "Codename:	eoan" ]; # Lines 14, 18, 22, 26, 30, 33, and 36 just check what was printed out by the variables and continue execution. (Expanded on below)
 then
-	sudo dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo apt-key add winehq.key && sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ eoan main' && sudo apt update && sudo apt install --install-recommends winehq-stable -y && sudo apt update
-	sudo add-apt-repository ppa:lutris-team/lutris && sudo apt-get update && sudo apt-get install lutris -y
+	sudo dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo apt-key add winehq.key && sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ eoan main' -y && sudo apt update && sudo apt install --install-recommends winehq-stable -y && sudo apt update
+	sudo add-apt-repository ppa:lutris-team/lutris -y && sudo apt-get update && sudo apt-get install lutris -y
 elif [ "$codename" == "Codename:	bionic" ];
 then
-	sudo dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo apt-key add winehq.key && sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' && sudo apt update && sudo apt install --install-recommends winehq-stable -y && sudo apt update
-	sudo add-apt-repository ppa:lutris-team/lutris && sudo apt-get update && sudo apt-get install lutris -y
+	sudo dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo apt-key add winehq.key && sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' -y && sudo apt update && sudo apt install --install-recommends winehq-stable -y && sudo apt update
+	sudo add-apt-repository ppa:lutris-team/lutris -y && sudo apt-get update && sudo apt-get install lutris -y
 elif [ "$codename" == "Codename:	tricia" ] || [ "$codename" == "Codename:	tina" ] || [ "$codename" == "Codename:	tessa" ];
 then
-	sudo dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/winehq.key && wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add - && sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' && sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport && sudo apt-get update && wget -O- -q https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/Release.key | sudo apt-key add -    && echo "deb http://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04 ./" | sudo tee /etc/apt/sources.list.d/wine-obs.list && sudo apt update && sudo apt install --install-recommends winehq-stable -y
-	sudo add-apt-repository ppa:lutris-team/lutris && sudo apt-get update && sudo apt-get install lutris -y
+	sudo dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/winehq.key && wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add - && sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' -y && sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport -y && sudo apt-get update && wget -O- -q https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/Release.key | sudo apt-key add -    && echo "deb http://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04 ./" | sudo tee /etc/apt/sources.list.d/wine-obs.list && sudo apt update && sudo apt install --install-recommends winehq-stable -y
+	sudo add-apt-repository ppa:lutris-team/lutris -y && sudo apt-get update && sudo apt-get install lutris -y
 elif [ "$codename" == "Codename:	xenial" ] || [ "$codename" == "Codename:	sarah" ] || [ "$codename" == "Codename:	serena" ] || [ "$codename" == "Codename:	sonya" ] || [ "$codename" == "Codename:	sylvia" ];
 then
-	sudo dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo apt-key add winehq.key && sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main' && sudo apt update && sudo apt install --install-recommends winehq-stable -y && sudo apt update
-	sudo add-apt-repository ppa:lutris-team/lutris && sudo apt-get update && sudo apt-get install lutris -y
+	sudo dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo apt-key add winehq.key && sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main' -y && sudo apt update && sudo apt install --install-recommends winehq-stable -y && sudo apt update
+	sudo add-apt-repository ppa:lutris-team/lutris -y && sudo apt-get update && sudo apt-get install lutris -y
 elif [ "$fedora" == "Fedora release 31 (Thirty One)" ]
 then
-	sudo rpm --import https://dl.winehq.org/wine-builds/winehq.key && sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/31/winehq.repo && sudo dnf install winehq-stable -y && sudo dnf install lutris -y
+	sudo rpm --import https://dl.winehq.org/wine-builds/winehq.key -y && sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/31/winehq.repo -y && sudo dnf install winehq-stable -y && sudo dnf install lutris -y
 elif [ "$fedora" == "Fedora release 30 (Thirty)" ]
 then
-	sudo rpm --import https://dl.winehq.org/wine-builds/winehq.key && sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/30/winehq.repo && sudo dnf install winehq-stable -y && sudo dnf install lutris -y
+	sudo rpm --import https://dl.winehq.org/wine-builds/winehq.key && sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/30/winehq.repo -y && sudo dnf install winehq-stable -y && sudo dnf install lutris -y
 elif [ "$manjaro" == "Description:	Manjaro Linux" ]
 then
 	sudo pacman -S wine lutris -y
