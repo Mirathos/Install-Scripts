@@ -2,7 +2,7 @@
 #Author:	Skabooty (Global for Homecoming: @Naudilus)
 #Started:	3/20/2020 at 22:34	
 #Finished:	3/21/2020 at 02:09
-#Edited:	3/21/2020 at 16:58
+#Edited:	4/23/2020 at 20:40 (Updated for Ubuntu 20.04 LTS)
 
 codename=$(lsb_release -c)	# Gets the codename for the distribution, and stores it into a variable called codename. This only works on Debian based distros
 fedora=$(cat /etc/fedora-release)	# This does the same thing as codename, but for Fedora.
@@ -12,6 +12,10 @@ printf "%s\n" "$codename"	# Prints out which codename it grabbed. Entirely usele
 printf "%s\n" "$fedora"	# This does the same thing, but for Fedora 30 / 31; Also useless, only for debugging.
 
 if [ "$codename" == "Codename:	eoan" ]; # Lines 14, 18, 22, 26, 30, 33, and 36 just check what was printed out by the variables and continue execution. (Expanded on below)
+then
+	sudo dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo apt-key add winehq.key && sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ eoan main' -y && sudo apt update && sudo apt install --install-recommends winehq-stable -y && sudo apt update
+	sudo add-apt-repository ppa:lutris-team/lutris -y && sudo apt-get update && sudo apt-get install lutris -y
+elif [ "$codename" == "Codename:	focal" ]; #Ubuntu 20.04 LTS 
 then
 	sudo dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo apt-key add winehq.key && sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ eoan main' -y && sudo apt update && sudo apt install --install-recommends winehq-stable -y && sudo apt update
 	sudo add-apt-repository ppa:lutris-team/lutris -y && sudo apt-get update && sudo apt-get install lutris -y
