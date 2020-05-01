@@ -1,8 +1,8 @@
 #!/bin/bash
-#Author:	Skabooty (Global for Homecoming: @Naudilus)
+#Author:	ColdZero (Global for Homecoming: @Naudilus)
 #Started:	3/20/2020 at 22:34	
 #Finished:	3/21/2020 at 02:09
-#Edited:	4/23/2020 at 20:40 (Updated for Ubuntu 20.04 LTS)
+#Edited:	4/30/2020 at 22:33 (Updated for Pop!_OS 20.04 LTS)
 
 codename=$(lsb_release -c)	# Gets the codename for the distribution, and stores it into a variable called codename. This only works on Debian based distros
 fedora=$(cat /etc/fedora-release)	# This does the same thing as codename, but for Fedora.
